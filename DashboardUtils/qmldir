@@ -1,0 +1,4 @@
+module DashboardUtils
+singleton Dimensions 1.0 Dimensions.qml
+ContribGraph 1.0 ContribGraph.qml
+DashButtons  1.0 DashButtons.qml
