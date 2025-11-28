@@ -21,4 +21,6 @@ QtObject {
     // ============================================================
     readonly property string screenshotScript: scriptsPath + "/screenshot.sh"
     readonly property string searchScript: scriptsPath + "/search.sh"
+    readonly property string steamScript: scriptsPath + "/steam.sh"
+    readonly property string cpickerScript: scriptsPath + "/cpicker.sh"
 }

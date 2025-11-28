@@ -26,7 +26,7 @@ QtObject {
     readonly property int pfpLeftMargin: 20       // PFP distance from left edge
     
     readonly property int btnSize: 40             // icon button size
-    readonly property int iconSize: 26            // SVG icon size inside buttons
+    readonly property int iconSize: 24            // SVG icon size inside buttons
     readonly property int btnSpacing: 12          // gap between buttons
     readonly property int barHPadding: 24         // left/right padding of button bar
     readonly property int barVPadding: 12         // top/bottom padding of button bar
@@ -34,13 +34,14 @@ QtObject {
     // ============================================================
     // CONTRIBUTION GRAPH
     // ============================================================
-    readonly property int tileSize: 9             // contribution square size
+    readonly property int tileWidth:  11              // contribution square size
+    readonly property int tileHeight: 12            // contribution square size
     readonly property int tileGap: 2              // gap between squares
     readonly property int graphMargin: 15         // graph module internal padding
     readonly property int minGraphHeight: 120     // minimum height for graph
     readonly property int headerHeight: 24        // height of "@user / total" row
     
     // Graph Text Sizes
-    readonly property int graphUsernameFontSize: 10    // "@username's Contributions"
-    readonly property int graphTotalFontSize: 16       // "152 total"
+    readonly property int graphUsernameFontSize: 15    // "@username's Contributions"
+    readonly property int graphTotalFontSize: 15       // "152 total"
 }

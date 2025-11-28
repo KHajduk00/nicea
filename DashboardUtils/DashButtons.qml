@@ -7,17 +7,17 @@ import "."
 
 Rectangle {
     id: root
-    color: Theme.Colors.color15
+    color: Theme.Colors.color0
     border.width: Dimensions.border
-    border.color: Theme.Colors.color11
+    border.color: Theme.Colors.color14
     radius: Dimensions.radius
-    
+
     implicitWidth: layout.width + Dimensions.barHPadding * 2
     implicitHeight: Dimensions.btnSize + Dimensions.barVPadding * 2
-    
+
     Layout.fillWidth: true
     Layout.preferredHeight: implicitHeight
-    
+
     /*  profile picture - LEFT ALIGNED  */
     Rectangle {
         width: Dimensions.pfpSize
@@ -25,17 +25,17 @@ Rectangle {
         radius: width / 2
         color: Theme.Colors.color13
         border.width: Dimensions.border
-        border.color: Theme.Colors.color8
-        
+        border.color: Theme.Colors.color14
+
         anchors.left: parent.left
         anchors.leftMargin: Dimensions.pfpLeftMargin
         anchors.verticalCenter: parent.verticalCenter
-        
+
         ClippingWrapperRectangle {
             anchors.fill: parent
             anchors.margins: Dimensions.border
             radius: width / 2
-            
+
             Image {
                 anchors.fill: parent
                 source: Theme.Config.profilePicture
@@ -44,7 +44,7 @@ Rectangle {
             }
         }
     }
-    
+
     /*  buttons - CENTERED  */
     RowLayout {
         id: layout
@@ -56,7 +56,9 @@ Rectangle {
                 {icon:"power-off.svg",  tip:"Power off"},
                 {icon:"reload.svg",     tip:"Reboot"},
                 {icon:"screenshot.svg", tip:"Screenshot"},
-                {icon:"search.svg",     tip:"Search"}
+                {icon:"search.svg",     tip:"Search"},
+                {icon:"gaming.svg",     tip:"Steam"},
+                {icon:"cpicker.svg",    tip:"Colour picker"}
             ]
 
             Rectangle {
@@ -64,8 +66,8 @@ Rectangle {
                 width:  Dimensions.btnSize
                 height: Dimensions.btnSize
                 radius: Dimensions.radius
-                color:  ma.containsMouse ? Theme.Colors.color8
-                                        : Theme.Colors.color14
+                color:  ma.containsMouse ? Theme.Colors.color7
+                                        : Theme.Colors.color1
                 border.width: Dimensions.border
                 border.color: Theme.Colors.color11
                 scale: ma.containsMouse ? 0.95 : 1.0
@@ -96,6 +98,10 @@ Rectangle {
                             return ["bash", "-c", Theme.Config.screenshotScript + " &disown"];
                         case "search.svg":
                             return ["bash", "-c", Theme.Config.searchScript + " &disown"];
+                        case "gaming.svg":
+                            return ["bash", "-c", Theme.Config.steamScript + " &disown"];
+                        case "cpicker.svg":
+                            return ["bash", "-c", Theme.Config.cpickerScript + " &disown"];
                         default:
                             return [];
                         }
@@ -107,16 +113,17 @@ Rectangle {
                     anchors.fill: parent
                     cursorShape: Qt.PointingHandCursor
                     hoverEnabled: true
+
                     onClicked: {
                         console.log("Button clicked:", modelData.icon);
-                        if (modelData.icon === "power-off.svg" ||
-                            modelData.icon === "reload.svg"     ||
-                            modelData.icon === "screenshot.svg" ||
-                            modelData.icon === "search.svg")
-                        {
+
+                        const known = ["power-off.svg", "reload.svg",
+                                    "screenshot.svg", "search.svg",
+                                    "gaming.svg", "cpicker.svg"];
+
+                        if (known.includes(modelData.icon)) {
                             console.log("Starting", modelData.tip, "process…");
-                            proc.running = true;          // or: proc.running = true;
-                            mouse.accepted = true; // swallow the click
+                            proc.running = true;   // fire the Process
                         }
                     }
                 }

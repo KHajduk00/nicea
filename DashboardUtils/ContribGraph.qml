@@ -10,18 +10,19 @@ Rectangle {
     property var contributionData: []
     property var gridData: []
 
-    readonly property int commitSquareSize: Dimensions.tileSize
+    readonly property int tileWidth:  Dimensions.tileWidth
+    readonly property int tileHeight: Dimensions.tileHeight
     readonly property int squareSpacing: Dimensions.tileGap
     readonly property int maxWeeks: 45
 
-    color: Theme.Colors.color15
+    color: Theme.Colors.color0
     radius: Dimensions.radius
     border.width: Dimensions.border
-    border.color: Theme.Colors.color11
+    border.color: Theme.Colors.color9
 
     implicitWidth: {
         const weeks = Math.max(1, Math.ceil(gridData.length / 7));
-        return weeks * (commitSquareSize + squareSpacing) + Dimensions.graphMargin * 2;
+        return weeks * (tileWidth + squareSpacing) + Dimensions.graphMargin * 2;
     }
     implicitHeight: Dimensions.minGraphHeight
 
@@ -111,7 +112,6 @@ Rectangle {
         anchors.margins: Dimensions.graphMargin
         spacing: Dimensions.spacing
 
-        // Header ABOVE the graph
         RowLayout {
             Layout.fillWidth: true
             Layout.preferredHeight: Dimensions.headerHeight
@@ -119,28 +119,25 @@ Rectangle {
 
             Text {
                 text: username ? `@${username}'s Contributions` : "Loading…"
-                color: Theme.Colors.color1
+                color: Theme.Colors.color15
                 font.pixelSize: Dimensions.graphUsernameFontSize
                 font.bold: true
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             }
 
-            Item {
-                Layout.fillWidth: true
-            }
+            Item { Layout.fillWidth: true }
 
             Text {
                 text: contributionData.length
                       ? `${contributionData.reduce((sum, d) => sum + d.count, 0)} total`
                       : ""
-                color: Theme.Colors.color0
+                color: Theme.Colors.color15
                 font.pixelSize: Dimensions.graphTotalFontSize
                 font.bold: true
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             }
         }
 
-        // Contribution Grid
         Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -159,29 +156,26 @@ Rectangle {
 
                     Rectangle {
                         id: rect
-                        width: commitSquareSize
-                        height: commitSquareSize
+                        width: tileWidth
+                        height: tileHeight
                         radius: 2
 
                         property var day: gridData[index] || {level: 0, count: 0, date: ""}
 
                         color: {
                             switch (day.level) {
-                                case 0: return Theme.Colors.color15
-                                case 1: return Theme.Colors.color11
-                                case 2: return Theme.Colors.color10
-                                case 3: return Theme.Colors.color9
-                                case 4: return Theme.Colors.color8
-                                default: return Theme.Colors.color15
+                                case 0: return Theme.Colors.conlevel1
+                                case 1: return Theme.Colors.conlevel2
+                                case 2: return Theme.Colors.conlevel3
+                                case 3: return Theme.Colors.conlevel4
+                                case 4: return Theme.Colors.conlevel5
+                                default: return Theme.Colors.conlevel1
                             }
                         }
 
                         MouseArea {
                             anchors.fill: parent
                             hoverEnabled: true
-                            onContainsMouseChanged: {
-                                // tooltip stub
-                            }
                         }
                     }
                 }
