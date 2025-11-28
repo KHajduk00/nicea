@@ -45,59 +45,11 @@ PanelWindow {
     font.pixelSize: 16
   }
   
-  // Internet connectivity indicator
-  Item {                 
-      anchors.left: parent.left
-      anchors.leftMargin: 10
-      anchors.verticalCenter: parent.verticalCenter
-      width: 25; height: 25
-
-      QtObject {
-          id: internetModule
-          property bool internetConnected: false
-      }
-
-      Process {
-          id: internetProcess
-          running: true
-          command: ["ping", "-c1", "1.0.0.1"]
-          property string fullOutput: ""
-          stdout: SplitParser {
-              onRead: out => {
-                  internetProcess.fullOutput += out + "\n";
-                  if (out.includes("0% packet loss")) internetModule.internetConnected = true;
-              }
-          }
-          onExited: {
-              internetModule.internetConnected = internetProcess.fullOutput.includes("0% packet loss");
-              internetProcess.fullOutput = "";
-              updateTimer.restart();
-          }
-      }
-
-      Timer {
-          id: updateTimer
-          interval: 5000
-          running: true; repeat: true
-          onTriggered: {
-              internetModule.internetConnected = false;
-              internetProcess.running = true;
-          }
-      }
-
-      Image {
-          anchors.fill: parent
-          source: internetModule.internetConnected
-                  ? "/home/khajduk/.config/quickshell/nicea/icons/yes-internet.svg"
-                  : "/home/khajduk/.config/quickshell/nicea/icons/no-internet.svg"
-          fillMode: Image.PreserveAspectFit
-          smooth: true
-      }
-  }
-
   // Workspace indicators
   Row {
-    anchors.centerIn: parent
+    anchors.left: parent.left
+    anchors.leftMargin: 10
+    anchors.verticalCenter: parent.verticalCenter
     spacing: 8
 
     Repeater {
