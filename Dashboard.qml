@@ -46,7 +46,7 @@ Scope {
                 color: Theme.Colors.color0
                 radius: Dash.Dimensions.dashRadius
                 border.width: Dash.Dimensions.dashBorderWidth
-                border.color: Theme.Colors.color13
+                border.color: Theme.Colors.color0
 
                 // Eat clicks on empty border
                 MouseArea {

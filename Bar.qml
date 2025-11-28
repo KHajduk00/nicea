@@ -59,6 +59,11 @@ PanelWindow {
         width: 22
         height: 22
 
+        MouseArea {
+            anchors.fill: parent
+            onClicked: modelData.activate()   // or: modelData.activate()
+        }
+
         Image { 
           id: wsIcon
           anchors.fill: parent
