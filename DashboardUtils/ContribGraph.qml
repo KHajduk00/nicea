@@ -53,10 +53,10 @@ Rectangle {
         gridData = columnFirst;
     }
 
-    color: Theme.Colors.color0
+    color: Theme.Colors.graphBackground
     radius: Dimensions.radius
     border.width: Dimensions.border
-    border.color: Theme.Colors.color9
+    border.color: Theme.Colors.graphBorder
     implicitWidth: {
         const weeks = Math.max(1, Math.ceil(gridData.length / 7));
         return weeks * (tileWidth + squareSpacing) + Dimensions.graphMargin * 2;
@@ -119,7 +119,7 @@ Rectangle {
 
             Text {
                 text: username ? `@${username}'s Contributions` : "Loading…"
-                color: Theme.Colors.color15
+                color: Theme.Colors.graphText
                 font.pixelSize: Dimensions.graphUsernameFontSize
                 font.bold: true
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -131,7 +131,7 @@ Rectangle {
 
             Text {
                 text: contributionData.length ? `${contributionData.reduce((sum, d) => sum + d.count, 0)} total` : ""
-                color: Theme.Colors.color15
+                color: Theme.Colors.graphText
                 font.pixelSize: Dimensions.graphTotalFontSize
                 font.bold: true
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter

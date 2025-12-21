@@ -32,4 +32,9 @@ QtObject {
     property color barClockText: "#CCCCCC"
     property color barWorkspaceActive: "#CCCCCC"
     property color barWorkspaceInactive: "#868686"
+    
+    // GitHub Contributions Graph colors
+    property color graphBackground: "#CCCCCC"
+    property color graphBorder: "#4D4D4D"
+    property color graphText: "#333333"
 }
