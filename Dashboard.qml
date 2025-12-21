@@ -48,10 +48,10 @@ Scope {
                 anchors.centerIn: parent
                 width: Dash.Dimensions.dashWidth
                 height: Dash.Dimensions.dashHeight
-                color: Theme.Colors.color0
+                color: Theme.Colors.dashboardPopupBackground
                 radius: Dash.Dimensions.dashRadius
                 border.width: Dash.Dimensions.dashBorderWidth
-                border.color: Theme.Colors.color0
+                border.color: Theme.Colors.dashboardPopupBorder
 
                 // Eat clicks on empty border
                 MouseArea {

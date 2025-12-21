@@ -47,4 +47,8 @@ QtObject {
     property color dashboardButtonDefault: "#C2C2C2"
     property color dashboardButtonHover: "#868686"
     property color dashboardButtonBorder: "#545454"
+    
+    // Dashboard Popup colors
+    property color dashboardPopupBackground: "#CCCCCC"
+    property color dashboardPopupBorder: "#CCCCCC"
 }
