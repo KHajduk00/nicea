@@ -26,4 +26,10 @@ QtObject {
     property color color13: "#D35435"  // PFP background and dashboard border
     property color color14: "#474747"  // button default
     property color color15: "#333333"  // Text
+    
+    // Bar-specific colors
+    property color barBackground: "#333333"
+    property color barClockText: "#CCCCCC"
+    property color barWorkspaceActive: "#CCCCCC"
+    property color barWorkspaceInactive: "#868686"
 }
