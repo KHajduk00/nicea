@@ -27,6 +27,6 @@ QtObject {
     // ============================================================
     // Bar Positioning - You have to change both values to move the bar
     // ============================================================
-    readonly property bool barTop: false
-    readonly property bool barBottom: true
+    readonly property bool barTop: true
+    readonly property bool barBottom: false
 }

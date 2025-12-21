@@ -2,6 +2,10 @@
 import Quickshell
 
 ShellRoot {
-  Bar {}
-  Dashboard {}
+    Bar {
+    }
+
+    Dashboard {
+    }
+
 }
