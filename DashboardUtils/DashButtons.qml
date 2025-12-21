@@ -8,9 +8,9 @@ import Quickshell.Widgets
 Rectangle {
     id: root
 
-    color: Theme.Colors.color0
+    color: Theme.Colors.dashboardBackground
     border.width: Dimensions.border
-    border.color: Theme.Colors.color14
+    border.color: Theme.Colors.dashboardBorder
     radius: Dimensions.radius
     implicitWidth: layout.width + Dimensions.barHPadding * 2
     implicitHeight: Dimensions.btnSize + Dimensions.barVPadding * 2
@@ -22,9 +22,9 @@ Rectangle {
         width: Dimensions.pfpSize
         height: Dimensions.pfpSize
         radius: width / 2
-        color: Theme.Colors.color13
+        color: Theme.Colors.dashboardPfpBackground
         border.width: Dimensions.border
-        border.color: Theme.Colors.color14
+        border.color: Theme.Colors.dashboardPfpBorder
         anchors.left: parent.left
         anchors.leftMargin: Dimensions.pfpLeftMargin
         anchors.verticalCenter: parent.verticalCenter
@@ -79,9 +79,9 @@ Rectangle {
                 width: Dimensions.btnSize
                 height: Dimensions.btnSize
                 radius: Dimensions.radius
-                color: ma.containsMouse ? Theme.Colors.color7 : Theme.Colors.color1
+                color: ma.containsMouse ? Theme.Colors.dashboardButtonHover : Theme.Colors.dashboardButtonDefault
                 border.width: Dimensions.border
-                border.color: Theme.Colors.color11
+                border.color: Theme.Colors.dashboardButtonBorder
                 scale: ma.containsMouse ? 0.95 : 1
 
                 Image {

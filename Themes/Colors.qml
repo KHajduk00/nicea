@@ -22,6 +22,7 @@ QtObject {
     property color conlevel5: "#D35435"  // level 5 - darkest (least contributions)
     
     // Base UI colors
+    property color color11: "#545454"
     property color color12: "#545454"
     property color color13: "#D35435"  // PFP background and dashboard border
     property color color14: "#474747"  // button default
@@ -37,4 +38,13 @@ QtObject {
     property color graphBackground: "#CCCCCC"
     property color graphBorder: "#4D4D4D"
     property color graphText: "#333333"
+    
+    // Dashboard Bar colors (profile + buttons)
+    property color dashboardBackground: "#CCCCCC"
+    property color dashboardBorder: "#474747"
+    property color dashboardPfpBackground: "#D35435"
+    property color dashboardPfpBorder: "#474747"
+    property color dashboardButtonDefault: "#C2C2C2"
+    property color dashboardButtonHover: "#868686"
+    property color dashboardButtonBorder: "#545454"
 }
