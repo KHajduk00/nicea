@@ -1,4 +1,4 @@
-// Bar.qml - Top bar
+// Bar.qml
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
@@ -12,12 +12,13 @@ PanelWindow {
   id: bar
   
   anchors {
-    top: true
-    left: true
-    right: true
+      left: true
+      right: true
+      top: Theme.Config.barTop
+      bottom: Theme.Config.barBottom
   }
   
-  implicitHeight: 30
+  height: 30  
   color: Theme.Colors.color15
   
   // Time Clock
@@ -61,9 +62,8 @@ PanelWindow {
 
         MouseArea {
             anchors.fill: parent
-            onClicked: modelData.activate()   // or: modelData.activate()
-        }
-
+            onClicked: modelData.activate()
+          }
         Image { 
           id: wsIcon
           anchors.fill: parent
@@ -77,7 +77,7 @@ PanelWindow {
         ColorOverlay {
                 anchors.fill: wsIcon
                 source: wsIcon
-                color: modelData.active ? Theme.Colors.color0   // highlighted
+                color: modelData.active ? Theme.Colors.color0
                                         : Theme.Colors.color7
         }
       }

@@ -23,4 +23,10 @@ QtObject {
     readonly property string searchScript: scriptsPath + "/search.sh"
     readonly property string steamScript: scriptsPath + "/steam.sh"
     readonly property string cpickerScript: scriptsPath + "/cpicker.sh"
+
+    // ============================================================
+    // Bar Positioning - You have to change both values to move the bar
+    // ============================================================
+    readonly property bool barTop: false
+    readonly property bool barBottom: true
 }
