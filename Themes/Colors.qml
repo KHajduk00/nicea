@@ -10,26 +10,31 @@ QtObject {
     property color conlevel5: "#D35435"  // level 5 - darkest (least contributions)
     
     // Bar-specific colors
-    property color barBackground: "#333333"
-    property color barClockText: "#CCCCCC"
-    property color barWorkspaceActive: "#CCCCCC"
-    property color barWorkspaceInactive: "#868686"
+    property color barBackground:        "#282828"   // bg0_hard
+    property color barClockText:         "#ebdbb2"   // fg1
+    property color barWorkspaceActive:   "#ebdbb2"   // fg1
+    property color barWorkspaceInactive: "#a89984"   // gray4
+    property color barWorkspaceBackground: "#504945" // bg2
+    property color barClockBackground:     "#ebdbb2" // fg1
+    property color barClockForeground:     "#282828" // bg0_hard
+    property color barDateBackground:  "#504945" // bg2
+    property color barDateForeground:  "#ebdbb2" // fg1
     
     // GitHub Contributions Graph colors
-    property color graphBackground: "#CCCCCC"
-    property color graphBorder: "#4D4D4D"
-    property color graphText: "#333333"
+    property color graphBackground:      "#1D2021"   // bg1
+    property color graphBorder:          "#504945"   // bg2
+    property color graphText:            "#ebdbb2"   // fg1
     
     // Dashboard Bar colors (profile + buttons)
-    property color dashboardBackground: "#CCCCCC"
-    property color dashboardBorder: "#474747"
-    property color dashboardPfpBackground: "#D35435"
-    property color dashboardPfpBorder: "#474747"
-    property color dashboardButtonDefault: "#C2C2C2"
-    property color dashboardButtonHover: "#868686"
-    property color dashboardButtonBorder: "#545454"
+    property color dashboardBackground:  "#1D2021"   // bg1
+    property color dashboardBorder:      "#504945"   // bg2
+    property color dashboardPfpBackground:"#fb4934"   // bright-red
+    property color dashboardPfpBorder:   "#504945"   // bg2
+    property color dashboardButtonDefault:"#ebdbb2"   // neutral-blue
+    property color dashboardButtonHover: "#d79921"   // neutral-yellow
+    property color dashboardButtonBorder:"#504945"   // bg2
     
     // Dashboard Popup colors
-    property color dashboardPopupBackground: "#CCCCCC"
-    property color dashboardPopupBorder: "#CCCCCC"
+    property color dashboardPopupBackground: "#1D2021" // bg1
+    property color dashboardPopupBorder:     "#504945" // bg2
 }
