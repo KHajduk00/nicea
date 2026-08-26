@@ -8,6 +8,7 @@ import Quickshell.Wayland
 import "Themes" as Theme
 import "BarUtils" as BarUtils
 import "Notifications" as Notif
+import "Media" as Media
 
 PanelWindow {
     id: bar
@@ -105,7 +106,7 @@ PanelWindow {
                 font.pixelSize: 14
                 elide: Text.ElideRight
                 horizontalAlignment: Text.AlignHCenter
-                opacity: Notif.NotificationService.active ? 0 : 1
+                opacity: (Notif.NotificationService.active || Media.MprisService.active) ? 0 : 1
 
                 Behavior on opacity {
                     NumberAnimation {
@@ -126,6 +127,22 @@ PanelWindow {
                 elide: Text.ElideRight
                 horizontalAlignment: Text.AlignHCenter
                 opacity: Notif.NotificationService.active ? 1 : 0
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.OutCubic
+                    }
+                }
+            }
+
+            // Now playing — transport controls plus the track, fading in
+            // over the title whenever something is playing.
+            Media.MediaControls {
+                anchors.centerIn: parent
+                maxTextWidth: parent.width - 140
+                opacity: (Media.MprisService.active && !Notif.NotificationService.active) ? 1 : 0
+                enabled: Media.MprisService.active && !Notif.NotificationService.active
 
                 Behavior on opacity {
                     NumberAnimation {
